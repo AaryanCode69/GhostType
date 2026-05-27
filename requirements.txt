@@ -1,5 +1,5 @@
 # Web Framework & ASGI Server
-fastapi>=0.111.0
+fastapi[standard]>=0.111.0
 uvicorn[standard]>=0.29.0
 
 # Database & ORM
