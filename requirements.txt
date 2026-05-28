@@ -14,3 +14,4 @@ python-multipart>=0.0.9
 
 # Environment & Configuration
 pydantic-settings>=2.2.1
+python-dotenv
