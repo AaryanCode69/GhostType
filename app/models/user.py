@@ -17,5 +17,3 @@ class User(Base,BaseClass):
     avatar_url = Column(String,nullable= True)
     is_active = Column(Boolean,default= True)
     is_superuser = Column(Boolean,default=False)
-
-
