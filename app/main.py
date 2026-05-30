@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 from core.database import engine, Base
+import models.user
+import api.routes_auth
 
 router  = FastAPI(title="GhostType")
 

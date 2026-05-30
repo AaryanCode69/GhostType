@@ -1,4 +1,4 @@
-from fastapi import Depends, HTTPException
+from fastapi import APIRouter , Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 
@@ -6,7 +6,9 @@ from sqlalchemy.future import select
 from models.user import User
 from schema.user_schemas import CreateUserDTO,CreateUserResponseDTO
 from dependencies import get_db
-from main import router
+
+
+router = APIRouter(prefix="/api/v1/auth", tags=["auth"])
 
 @router.post("/api/v1/auth/signup",response_model=CreateUserResponseDTO)
 async def create_user(user: CreateUserDTO,db: AsyncSession = Depends(get_db)):
