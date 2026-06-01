@@ -5,12 +5,12 @@ from sqlalchemy.future import select
 
 from models.user import User
 from schema.user_schemas import CreateUserDTO,CreateUserResponseDTO
-from dependencies import get_db
+from api.dependencies import get_db
 
 
 router = APIRouter(prefix="/api/v1/auth", tags=["auth"])
 
-@router.post("/api/v1/auth/signup",response_model=CreateUserResponseDTO)
+@router.post("/signup",response_model=CreateUserResponseDTO)
 async def create_user(user: CreateUserDTO,db: AsyncSession = Depends(get_db)):
     result = await db.execute(select(User).where(User.email == user.email))
     existing_user  = result.scalars().first()

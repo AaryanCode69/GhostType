@@ -9,3 +9,5 @@ router  = FastAPI(title="GhostType")
 async def startup():
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
+
+router.include_router(api.routes_auth.router)

@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel,ConfigDict
 
 
 class CreateUserDTO(BaseModel):
@@ -9,7 +9,9 @@ class CreateUserDTO(BaseModel):
 
 class CreateUserResponseDTO(BaseModel):
     id: str
-    emai: str
+    email: str
     username: str
     avatar_url: str | None
     is_active: bool
+    
+    model_config = ConfigDict(from_attributes=True)
