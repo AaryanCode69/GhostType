@@ -2,8 +2,11 @@ from fastapi import FastAPI
 from core.database import engine, Base
 import models.user
 import api.routes_auth
+from core.exceptions import register_exception_handlers
 
 router  = FastAPI(title="GhostType")
+
+register_exception_handlers(router)
 
 @router.on_event("startup")
 async def startup():
